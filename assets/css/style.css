@@ -1,0 +1,14 @@
+h1{
+    text-align: center;
+    color: rgb(90, 37, 90);
+}
+button{
+    width: 200px;
+    height: 100px;
+    background-color: rgba(147, 96, 196, 0.342);
+}
+
+#buttons{
+    margin: 50px 0;
+    text-align: center;
+}

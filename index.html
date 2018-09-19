@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/javascript" href="assets/javascript/app.js">
+    <title>TriviaGame</title>
+</head>
+<body>
+    
+    <h1>Totally Trivial Trivia!</h1>
+    <p>1.   What is another name for a lightsaber?</p>
+
+<form method="POST"
+      onSubmit="return checkAnswer(this,'B');"
+>
+
+<input type="radio" value="A" name="cc">
+A. laser blade<br>
+
+<input type="radio" value="B" name="cc">
+B. Glow Stick<br>
+
+<input type="radio" value="C" name="cc">
+C. Glowing Baton<br>
+
+<input type="submit" value="Submit Answer">
+   <p>2.    Who is the best jedi?</p>
+
+<FORM method="POST"
+   onSubmit="return checkAnswer(this,'C');"
+>
+
+<input type="radio" value="A" name="cc">
+A. Mace Windu <BR>
+
+<input type="radio" value="B" name="cc">
+B. Luke Skywalker<BR>
+
+<input type="radio" value="C" name="cc">
+C. Kit Fisto<BR>
+
+<INPUT TYPE="SUBMIT" VALUE="Submit Answer">
+
+</FORM>
+
+</FORM>
+    <!-- <div id="buttons">
+        <button type="button" id="startBtn" onclick="initialize()">Start</button>
+        <button type="button" id="endBtn" onclick="endGame">END</button>
+    </div> -->
+<script>
+    // var startBtn = document.getElementById("startBtn");
+
+//     function initialize() {
+//         startBtn.style.display = "none";
+// }    
+function checkAnswer(quizForm,
+                     theAnswer,
+                     urlRight,
+                     urlWrong)
+{
+  var s = "?";
+
+  // go through the "current choices"
+  // to find the selected choice.
+  // radio boxes pointing to choices
+  // must be named "cc"
+  // change if necessary
+  //
+  var i = 0;
+  for(;i<quizForm.elements.length;i++)
+  {
+    if(("cc" ==
+        quizForm.elements[i].name) &&
+       (quizForm.elements[i].checked))
+    {
+      s = quizForm.elements[i].value;
+    }
+  }
+
+  // no choice was selected
+  //
+  if("?" == s)
+  {
+    alert("Please make a selection.");
+    return false;
+  }
+
+  // check if we have the correct
+  // choice selected
+  //
+  if(s == theAnswer)
+  {
+    alert("'"+s+"' is correct!");
+    if(urlRight)
+    {
+    document.location.href = urlRight;
+    }
+  }
+  else
+  {
+    alert("'"+s+"' is incorrect.");
+    if( urlWrong )
+    {
+    document.location.href = urlWrong;
+    }
+  }
+
+  // return "false" to indicate not to
+  // submit the form.
+  // change this to "true" if the form
+  // "action" is valid,
+  // i.e. points to a valid CGI script
+  //
+  return false;
+}
+</script>
+</body>
+</html>
